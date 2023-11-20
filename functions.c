@@ -1,4 +1,18 @@
-#include "main. h"
+#include "main.h"
+
+void print_char(char c) {
+    putchar(c);
+}
+
+void print_chars(int num, ...) {
+    va_list arg_list;
+    va_start(arg_list, num);
+
+    for (int i = 0; i < num; i++) {
+        print_char(va_arg(arg_list, char));
+    }
+    va_end(arg_list);
+}
 
 /**
  * _printf - 
@@ -7,22 +21,55 @@
 int _printf(const char *format, ...);
 {
 	va_list lista;
+	int i = 0;
+	char *str;
 
-
-	if (c)
+	va_start(lista, format);
+	if (format)
 	{
-		print_char;
+		while (format[i])
+		{
+			switch (format[i])
+			{
+				
+				case 'c':
+					print_chars("%c", va_arg(lista, char));
+					break;
+				case 's':
+					str = va_arg(lista, char *);
+					if (!str)
+						str = "(null)";
+					print_chars("%s", str);
+					break;
+				case '%':
+					print_chars("%s", va_arg(lista, char));
+					break;
+				default:
+					i++;
+					continue;
+			}
+			i++;
+		}
 	}
-	if else (s)
-	{
-		print_string;
-	
-	}
-	else (%)
-	{
-		print_perc;
-	}
+	va_end(lista);
 	return (0);
+}
+
+int _strcmp(char *s1, char *s2)
+{
+	int i = 0;
+	int diff = 0;
+
+	while (s1[i] != '\0' || s2[i] != '\0')
+	{
+		if (s1[i] != s2[i])
+		{
+			diff = s1[i] - s2[i];
+			break;
+		}
+		i++;
+	}
+	return (diff);
 }
 
 /**
@@ -54,7 +101,7 @@ int _strlen(char *s)
 	{
 		i++;
 	}
-	return (1);
+	return (i);
 }
 
 /**

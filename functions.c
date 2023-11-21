@@ -129,10 +129,11 @@ int _printf(const char *format, ...)
 	}
 	if (format == NULL)
 	{
-		_putchar(N);
-		_putchar(U);
-		_putchar(L);
-		_putchar(L);
+		while (format[i] != '\0')
+		{
+			_putchar(format[i]);
+			i++;
+		}
 	}
 	va_end(list);
 	return (len);

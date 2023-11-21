@@ -6,9 +6,6 @@
  * Return: number of characters printed
  */
 
-#include <stdarg.h>
-#include <stdio.h>
-
 int _printf(const char *format, ...)
 {
 	va_list list;

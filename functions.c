@@ -90,51 +90,47 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 	i = 0;
-	while (format[i] != 0)
-	{
-		if (format[i] == '%')
+	if (format != NULL)
 		{
-			i++;
-			if (format[i] == 0)
-			{
-				return (-1);
-			}
+		while (format[i] != 0)
+		{
 			if (format[i] == '%')
 			{
-				_putchar('%');
-				len++;
-			}
-			else
-			{
-				f = get_function(format[i]);
-				if (f == NULL)
+				i++;
+				if (format[i] == 0)
+				{
+					return (-1);
+				}
+				if (format[i] == '%')
 				{
 					_putchar('%');
-					_putchar(format[i]);
-					len += 2;
+					len++;
 				}
 				else
 				{
-					j = f(list);
-					len += j;
+					f = get_function(format[i]);
+					if (f == NULL)
+					{
+						_putchar('%');
+						_putchar(format[i]);
+						len += 2;
+					}
+					else
+					{
+						j = f(list);
+						len += j;
+					}
 				}
 			}
-		}
-		else
-		{
-			_putchar(format[i]);
-			len++;
-		}
-		i++;
-	}
-	if (format == NULL)
-	{
-		while (format[i] != '\0')
-		{
-			_putchar(format[i]);
+			else
+			{
+				_putchar(format[i]);
+				len++;
+			}
 			i++;
 		}
-	}
-	va_end(list);
-	return (len);
+		va_end(list);
+		return (len);
+		}
+	return (-1);
 }

@@ -1,61 +1,47 @@
 #include "main.h"
 
 /**
- * _printf - prints anything
- * @format: list of argument types passed to the function
- * Return: number of characters printed
+ * _printf - A function that prints everything
+ * @format: pointer to constant char
+ * @...: Second operand other args
+ * Return: Return an int or 0
  */
 
 int _printf(const char *format, ...)
 {
-    va_list list;
-    int i, j, len = 0;
-    int (*f)(va_list);
+	va_list ag_list;
+	int i, j, flag, len = 0;
+	print_data p_func[] = {
+		{"s", printf_string},
+		{"c", printf`_char},
+		{NULL, NULL}
+	};
 
-    va_start(list, format);
-    i = 0;
-    if (format != NULL)
-    {
-    while (format[i] != 0)
-    {
-            if (format[i] == '%')
-            {
-                    i++;
-                    if (format[i] == '%')
-                    {
-                            _putchar('%');
-                            len++;
-                    }
-                    else if (format[i] != 0)
-                    {
-                            f = get_function(format[i]);
-                            if (f == NULL)
-                            {
-                                    _putchar('%');
-                                    _putchar(format[i]);
-                                    len += 2;
-                            }
-                            else
-                            {
-                                    j = f(list);
-                                    len += j;
-                            }
-                    }
-                    else
-                    {
-                            _putchar(format[i]);
-                            len++;
-                    }
-            }
-            else
-            {
-                    _putchar(format[i]);
-                    len++;
-            }
-            i++;
-    }
-    va_end(list);
-    return (len);
-}
-return (-1);
+	va_start(ag_list, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		 return (0);
+	i = 0;
+
+	while (format != NULL && format[i] != '\0')
+	{
+		if (format[i] == '%' && format[i + 1] != '%')
+		{
+			j = 0, flag = 0;
+			while (p_func[j].type != NULL)
+			{
+				if (format[i + 1] == p_func[j].type[0])
+					len = len + p_func[j].print(ag_list), flag = 1,	i++;
+				j++;
+			}
+			if (flag == 0)
+				_putchar(format[i]), len += 1;
+		}
+		else if (format[i] == '%' && format[i + 1] == '%')
+			_putchar('%'), i++, len += 1;
+		else
+			_putchar(format[i]), len += 1;
+		i++;
+	}
+	va_end(ag_list);
+	return (len);
 }

@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	int i, j, flag, len = 0;
 	print_data p_func[] = {
 		{"s", printf_string},
-		{"c", printf`_char},
+		{"c", printf_char},
 		{NULL, NULL}
 	};
 

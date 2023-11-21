@@ -1,5 +1,6 @@
 #include "main.h"
-
+#include <stdarg.h>
+#include <stdlib.h>
 /**
  * _printf - A function that prints everything
  * @format: pointer to constant char
@@ -11,8 +12,8 @@ int _printf(const char *format, ...)
 	va_list ag_list;
 	int i, j, flag, len = 0;
 	print_data p_func[] = {
-		{"s", printf_string},
-		{"c", printf_char},
+		{"s", pr_string},
+		{"c", pr_char},
 		{NULL, NULL}
 	};
 
@@ -44,3 +45,4 @@ int _printf(const char *format, ...)
 	va_end(ag_list);
 	return (len);
 }
+

@@ -1,12 +1,12 @@
 #include "main.h"
-
+#include <stdarg.h>
+#include <stdlib.h>
 /**
- * printf_char - Function that prints a char
+ * pr_char - Function that prints a char
  * @char_list: First operand a va list
  * Return: Returns an int or 0
  */
-
-int printf_char(va_list char_list)
+int pr_char(va_list char_list)
 {
 	char c;
 
@@ -15,14 +15,12 @@ int printf_char(va_list char_list)
 
 	return (1);
 }
-
 /**
- * printf_string - Function that printg string
+ * pr_string - Function that printg string
  * @string_list: First operand a va list
  * Return: Returns an int or 0
  */
-
-int printf_string(va_list string_list)
+int pr_string(va_list string_list)
 {
 	char *s;
 	int i;

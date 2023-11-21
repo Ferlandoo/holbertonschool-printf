@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * printf_char - prints a character
- * @char_list: character to print
- * Return: 1
+ * printf_char - Function that prints a char
+ * @char_list: First operand a va list
+ * Return: Returns an int or 0
  */
 
 int printf_char(va_list char_list)
@@ -12,6 +12,7 @@ int printf_char(va_list char_list)
 
 	c = va_arg(char_list, int);
 	_putchar(c);
+
 	return (1);
 }
 
@@ -20,6 +21,7 @@ int printf_char(va_list char_list)
  * @string_list: First operand a va list
  * Return: Returns an int or 0
  */
+
 int printf_string(va_list string_list)
 {
 	char *s;

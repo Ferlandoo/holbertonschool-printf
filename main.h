@@ -1,24 +1,22 @@
 #ifndef MAIN_H
 #define MAIN_H
-#include <stdio.h>
-#include <stdarg.h>
-#include <stddef.h>
 #include <stdlib.h>
-#include <limits.h>
+#include <stdarg.h>
 /**
- * struct print_data - structure for printing data types
- * @type: type of data
- * @print: function to print data
+ * struct print_data - structure for printing data
+ * @type: type of format
+ * @print: function for printing
  */
 typedef struct print_data
 {
 	char *type;
-	int (*print)(va_list list);
+	int (*print)(va_list arg_list);
 } print_data;
+
 int _putchar(char c);
 int _printf(const char *format, ...);
-int printf_char(va_list char_list);
-int printf_string(va_list string_list);
-int _strlen(char *s);
-int (*get_function(char c))(va_list);
+int pr_char(va_list char_list);
+int pr_int(va_list int_list);
+int pr_decimal(va_list decimal_list);
+int pr_string(va_list string_list);
 #endif

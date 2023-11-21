@@ -32,7 +32,6 @@ int _printf(const char * const format, ...)
 			{
 				length += p[j].function(args);
 				i = i + 2;
-				goto Here;
 			}
 			j--;
 		}

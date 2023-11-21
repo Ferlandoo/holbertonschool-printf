@@ -129,7 +129,10 @@ int _printf(const char *format, ...)
 	}
 	if (format == NULL)
 	{
-		return (-1);
+		_putchar(N);
+		_putchar(U);
+		_putchar(L);
+		_putchar(L);
 	}
 	va_end(list);
 	return (len);

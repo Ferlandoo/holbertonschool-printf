@@ -95,12 +95,16 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == 0)
+			{
+				return (-1);
+			}
 			if (format[i] == '%')
 			{
 				_putchar('%');
 				len++;
 			}
-			else if (format[i] != 0)
+			else
 			{
 				f = get_function(format[i]);
 				if (f == NULL)
@@ -114,11 +118,6 @@ int _printf(const char *format, ...)
 					j = f(list);
 					len += j;
 				}
-			}
-			else
-			{
-				_putchar(format[i]);
-				len++;
 			}
 		}
 		else

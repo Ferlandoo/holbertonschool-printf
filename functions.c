@@ -65,8 +65,6 @@ int (*get_function(char c))(va_list)
 	print_data prints[] = {
 	{"c", printf_char},
 	{"s", printf_string},
-	{"i", printf_int},
-	{"d", printf_int},
 	{NULL, NULL}
 	};
 	while (prints[i].type)

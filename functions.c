@@ -29,7 +29,7 @@ int printf_string(va_list string_list)
 	str = va_arg(string_list, char*);
 	if (str == NULL)
 	{
-	str = "(NULL)";
+	str = "(null)";
 	}
 	len = _strlen(str);
 	for (i = 0; i < len; i++)
@@ -84,50 +84,50 @@ int (*get_function(char c))(va_list)
 
 int _printf(const char *format, ...)
 {
-    va_list list;
-    int i, j, len = 0;
-    int (*f)(va_list);
+	va_list list;
+	int i, j, len = 0;
+	int (*f)(va_list);
 
-    va_start(list, format);
-    i = 0;
-    while (format[i] != 0)
-    {
-            if (format[i] == '%')
-            {
-                    i++;
-                    if (format[i] == '%')
-                    {
-                            _putchar('%');
-                            len++;
-                    }
-                    else if (format[i] != 0)
-                    {
-                            f = get_function(format[i]);
-                            if (f == NULL)
-                            {
-                                    _putchar('%');
-                                    _putchar(format[i]);
-                                    len += 2;
-                            }
-                            else
-                            {
-                                    j = f(list);
-                                    len += j;
-                            }
-                    }
-                    else
-                    {
-                            _putchar(format[i]);
-                            len++;
-                    }
-            }
-            else
-            {
-                    _putchar(format[i]);
-                    len++;
-            }
-            i++;
-    }
-    va_end(list);
-    return (len);
+	va_start(list, format);
+	i = 0;
+	while (format[i] != 0)
+	{
+		if (format[i] == '%')
+		{
+			i++;
+			if (format[i] == '%')
+			{
+				_putchar('%');
+				len++;
+			}
+			else if (format[i] != 0)
+			{
+				f = get_function(format[i]);
+				if (f == NULL)
+				{
+					_putchar('%');
+					_putchar(format[i]);
+					len += 2;
+				}
+				else
+				{
+					j = f(list);
+					len += j;
+				}
+			}
+			else
+			{
+				_putchar(format[i]);
+				len++;
+			}
+		}
+		else
+		{
+			_putchar(format[i]);
+			len++;
+		}
+		i++;
+	}
+	va_end(list);
+	return (len);
 }

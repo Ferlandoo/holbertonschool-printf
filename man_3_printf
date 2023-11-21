@@ -1,0 +1,38 @@
+.\" Man page for PRINTF functions.
+.\" Contact Ferlando & Bleron to correct errors or typos.
+.TH man 8 "20 November 2023" "2.1" "printf man page"
+.SH NAME
+printf \- formatted output conversion
+.SH SYNOPSIS
+#include <stdio.h>
+
+int _printf(const char *format, ...);
+.SH DESCRIPTION
+printf() is a function in the C programming language that is used to print formatted output to the standard output stdout (which is generally the console screen) 1. It is a part of the C standard library <stdio.h> and can allow formatting the output in numerous ways.
+.SH OPTIONS
+To display and format values using printf(), we have format specifiers that are used in the formatted string. These format specifiers start with the percentage symbol %. Some commonly used specifiers are:
+
+.TP 
+.B %d: 
+for printing integers
+.TP
+.B %f:
+for printing floating-point numbers
+.TP
+.B %c:
+for printing characters
+.TP
+.B %s:
+for printing strings
+.TP
+.B %p:
+for printing memory addresses
+.TP
+.B %x:
+for printing hexadecimal values
+.SH SEE ALSO
+sprintf(8), snprintf(5), dprintf()(8) 
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Ferlando & Bleron

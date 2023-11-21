@@ -19,30 +19,31 @@ int _printf(const char *format, ...)
 	    if (format[i] == '%')
 	    {
 		    i++;
-		    if (format[i] == 0)
-		    {
-			    return (-1);
-		    }
-		    if (format[i] == '%')
-		    {
-			    _putchar('%');
-			    len++;
-		    }
-		    else
-		    {
-			    f = get_function(format[i]);
-			    if (f == NULL)
-			    {
-				    _putchar('%');
-				    _putchar(format[i]);
-				    len += 2;
-			    }
-			    else
-			    {
-				    j = f(list);
-				    len += j;
-			    }
-		    }
+                    if (format[i] == '%')
+                    {
+                            _putchar('%');
+                            len++;
+                    }
+                    else if (format[i] != 0)
+                    {
+                            f = get_function(format[i]);
+                            if (f == NULL)
+                            {
+                                    _putchar('%');
+                                    _putchar(format[i]);
+                                    len += 2;
+                            }
+                            else
+                            {
+                                    j = f(list);
+                                    len += j;
+                            }
+                    }
+                    else
+                    {
+                            _putchar(format[i]);
+                            len++;
+                    }
 	    }
 	    else
 	    {

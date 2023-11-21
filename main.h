@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <limits.h>
 /**
  * struct print_data - structure for printing data types
  * @type: type of data

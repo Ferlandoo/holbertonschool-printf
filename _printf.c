@@ -1,48 +1,41 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdlib.h>
 /**
- * _printf - A function that prints everything
- * @format: pointer to constant char
- * @...: Second operand other args
- * Return: Return an int or 0
+ * _printf - is a function that selects the correct function to print.
+ * @format: identifier to look for.
+ * Return: the length of the string.
  */
-int _printf(const char *format, ...)
+int _printf(const char * const format, ...)
 {
-	va_list ag_list;
-	int i, j, flag, len = 0;
-	print_data p_func[] = {
-		{"s", pr_string},
-		{"c", pr_char},
-		{NULL, NULL}
+	convert p[] = {
+		{"%s", print_s}, {"%c", print_c},
+		{"%%", print_37}
 	};
 
-	va_start(ag_list, format);
+	va_list args;
+	int i = 0, j, length = 0;
+
+	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		 return (0);
-	i = 0;
-	
-	while (format != NULL && format[i] != '\0')
+		return (-1);
+
+Here:
+	while (format[i] != '\0')
 	{
-		if (format[i] == '%' && format[i + 1] != '%')
+		j = 13;
+		while (j >= 0)
 		{
-			j = 0, flag = 0;
-			while (p_func[j].type != NULL)
+			if (p[j].ph[0] == format[i] && p[j].ph[1] == format[i + 1])
 			{
-				if (format[i + 1] == p_func[j].type[0])
-					len = len + p_func[j].print(ag_list), flag = 1,	i++;
-				j++;
+				length += p[j].function(args);
+				i = i + 2;
+				goto Here;
 			}
-			if (flag == 0)
-				_putchar(format[i]), len += 1;
+			j--;
 		}
-		else if (format[i] == '%' && format[i + 1] == '%')
-			_putchar('%'), i++, len += 1;
-		else
-			_putchar(format[i]), len += 1;
+		_putchar(format[i]);
+		length++;
 		i++;
 	}
-	va_end(ag_list);
-	return (len);
+	va_end(args);
+	return (length);
 }
-

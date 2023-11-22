@@ -3,7 +3,7 @@
 
 /**
  * print_c - Prints characters
- * @c: Character
+ * @c_list: Character
  * Return: 1: The lenght of a char
  */
 
@@ -18,7 +18,7 @@ int print_c(va_list c_list)
 
 /**
  * print_s - Prints strings
- * @s: Strings
+ * @s_list: Strings
  * Return: The lenght of the string
  */
 
@@ -38,7 +38,7 @@ int print_s(va_list s_list)
 
 /**
  * print_i - Prints integer
- * @i: Int to print
+ * @i_list: Int to print
  * Return: Numbers of integers printed
  */
 
@@ -83,45 +83,46 @@ int print_i(va_list i_list)
 
 /**
  * print_d - Prints decimal
- * @i: Int to print
+ * @d_list: Int to print
  * Return: Numbers of decimals printed
  */
 
 int print_d(va_list d_list)
 {
-        int n = va_arg(d_list, int);
-        int num, last = n % 10, digit, exp = 1;
-        int  i = 1;
+	int n = va_arg(d_list, int);
+	int num, last = n % 10, digit;
+	int  i = 1;
+	int exp = 1;
 
-        n = n / 10;
-        num = n;
+	n = n / 10;
+	num = n;
 
-        if (last < 0)
-        {
-                _putchar('-');
-                num = -num;
-                n = -n;
-                last = -last;
-                i++;
-        }
-        if (num > 0)
-        {
-                while (num / 10 != 0)
-                {
-                        exp = exp * 10;
-                        num = num / 10;
-                }
-                num = n;
-                while (exp > 0)
-                {
-                        digit = num / exp;
-                        _putchar(digit + '0');
-                        num = num - (digit * exp);
-                        exp = exp / 10;
-                        i++;
-                }
-        }
-        _putchar(last + '0');
+	if (last < 0)
+	{
+		_putchar('-');
+		num = -num;
+		n = -n;
+		last = -last;
+		i++;
+	}
+	if (num > 0)
+	{
+		while (num / 10 != 0)
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (exp > 0)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+			num = num - (digit * exp);
+			exp = exp / 10;
+			i++;
+		}
+	}
+	_putchar(last + '0');
 
-        return (i);
+	return (i);
 }

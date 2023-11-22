@@ -1,25 +1,41 @@
-.TH _printf
+.TH man 3 "22 November 2023" "2.2.0" "_printf man page"
 .SH NAME
-    _printf - formatted output conversion
+.B _printf
+- Prints formatted data
 .SH SYNOPSIS
-    int _printf(const char *format, ...);
+.B #include "main.h"
+.B int _printf(const char *
+.I format
+.B , ...)
 .SH DESCRIPTION
-    The _printf() function formats and prints output to the standard output stream (stdout). It writes the output to the terminal or other standard output device.
-    The format string defines the output format. It can contain plain characters and conversion specifications. Each conversion specification starts with the character '%', followed by an optional flag, width, precision, and conversion specifier.
-.SH RETURN VALUE
-    Upon successful completion, _printf() returns the total number of characters written to the standard output stream. If an error occurs, it returns a negative value.
-.SH FORMAT SPECIFIERS
-    The following format specifiers are supported:
-    %c   Character: Outputs a single character.
-    %s   String: Outputs a null-terminated string.
-    %d, %i Integer: Outputs a signed decimal integer.
-.SH EXAMPLES
-    The following examples demonstrate the usage of the printf() function:
-    printf("Hello, world!\n");
-    int num = 42;
-    printf("The answer is %d.\n", num);
-2:06
+.B _printf()
+-_printf() is a custom implementation of printf() that prints formatted data
+.SH Return value
+Return the number of characters printed, except the null byte placed at the end of the strings.If an error occurs, return -1.
+.SH Specifiers
+The specifiers are characters put after a % sign. They specify which format is required to apply to the data.
+.TP
+.B c
+Prints a single character
+.TP
+.B b
+prints unsigned int in binary
+.TP
+.B s
+Prints a string, this is an array of characters
+.TP
+.B d
+Prints a decimal
+.TP
+.B i
+Prints an integer
+.SH EXAMPLE
+Print the name, last name and age of a person: name and last name are pointers to strings and age is an integer:
+#include "holberton.h"
+_printf("%s, %s %d, \\n", name, last_name, age);
+.SH SEE ALSO
+.I printf(3)
+.SH BUGS
+No detected bugs.
 .SH AUTHOR
-    This man page was written by Ferlando & Blerim.
-.SH COPYRIGHT
-    Copyright ©️ 2023
+Ferlando Beqaj, Blerim Balliu.

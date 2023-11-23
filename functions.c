@@ -1,5 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include <stdarg.h>
 
 /**
  * print_c - Prints characters
@@ -51,7 +53,7 @@ int print_i(va_list i_list)
 
 	if (number < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		r++;
 		t = t * -1;
 		number = number * -1;
@@ -64,7 +66,7 @@ int print_i(va_list i_list)
 	}
 	while (l > 0)
 	{
-		putchar('0' + (number / l) % 10);
+		_putchar('0' + (number / l) % 10);
 		l = l / 10;
 	}
 
@@ -86,7 +88,7 @@ int print_d(va_list d_list)
 
 	if (number < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		r++;
 		t = t * -1;
 		number = number * -1;
@@ -99,7 +101,7 @@ int print_d(va_list d_list)
 	}
 	while (l > 0)
 	{
-		putchar('0' + (number / l) % 10);
+		_putchar('0' + (number / l) % 10);
 		l = l / 10;
 	}
 

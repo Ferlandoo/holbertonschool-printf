@@ -10,9 +10,9 @@
 .SH DESCRIPTION
 .B _printf()
 -_printf() is a custom implementation of printf() that prints formatted data
-.SH Return value
+.SH RETURN VALUE
 Return the number of characters printed, except the null byte placed at the end of the strings.If an error occurs, return -1.
-.SH Specifiers
+.SH SPECIFIERS
 The specifiers are characters put after a % sign. They specify which format is required to apply to the data.
 .TP
 .B c

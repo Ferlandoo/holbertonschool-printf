@@ -44,16 +44,18 @@ Here are some examples of how to use the function:
 
 int main(void)
 {
-    char *name = "Betty";
-    int age = 23;
-    float height = 1.65;
+    char c = 'A';
+    char *s = "Hello";
+    int i = 42;
+    double d = 3.14;
 
-    _printf("My name is %s and I am %d years old.\n", name, age); /* prints "My name is Betty and I am 23 years old." */
-    _printf("My height is %.2f meters.\n", height); /* prints "My height is 1.65 meters." */
-    _printf("%10s\n", "Holberton"); /* prints "  Holberton" */
-    _printf("%*.*s\n", 10, 4, "Holberton"); /* prints "      Holb" */
+    _printf("This is a char: %c\n", c); /* prints "This is a char: A" */
+    _printf("This is a string: %s\n", s); /* prints "This is a string: Hello" */
+    _printf("This is an integer: %d\n", i); /* prints "This is an integer: 42" */
+    _printf("This is a decimal: %.2f\n", d); /* prints "This is a decimal: 3.14" */
     return (0);
 }
+
 ```
 ## Authors
 

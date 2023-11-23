@@ -9,7 +9,7 @@
 .B , ...)
 .SH DESCRIPTION
 .B _printf()
--_printf() is a custom implementation of printf() that prints formatted data
+-_printf() is a custom implementation of printf() that prints formatted data. It can print various data types, such as characters, strings, integers and decimals.
 .SH RETURN VALUE
 Return the number of characters printed, except the null byte placed at the end of the strings.If an error occurs, return -1.
 .SH SPECIFIERS

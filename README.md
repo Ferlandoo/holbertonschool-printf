@@ -84,6 +84,7 @@ int main(void)
 | printf.c  | Main printf function file. Calls other functions.  |
 | functions.c | Contains `char`, `string`, `decimal` and `integer` functions. |
 | get_functions.c | Function that check format and call another function it format match with character. |
+| _putchar.c | Custom putchar function. |
 
 ## Authors
 

@@ -2,11 +2,13 @@
 #define MAIN_H
 
 #include <stdarg.h>
+
 /**
  * struct print - Structure containing identifiers
  * @t: type to print
  * @f: function to print
  */
+
 typedef struct print
 {
 	char *t;

@@ -39,7 +39,7 @@ int print_s(va_list s_list)
 }
 
 /**
- * print_i - Prints integer
+ * print_i - Print integer
  * @i_list: Int to print
  * Return: Numbers of integers printed
  */
@@ -73,7 +73,7 @@ int print_i(va_list i_list)
 }
 
 /**
- * print_d - Prints decimal
+ * print_d - Print decimal
  * @d_list: Int to print
  * Return: Numbers of decimals printed
  */

@@ -47,30 +47,29 @@ int print_s(va_list s_list)
 int print_i(va_list i_list)
 {
 	long int number = (long int)va_arg(i_list, int);
-	long int l = 1;
-	long int t = number;
-	int r = 1;
+	long int nr_weight = 1;
+	long int tmp = number;
+	int nr_digits = 1;
 
 	if (number < 0)
 	{
 		_putchar('-');
-		r++;
-		t = t * -1;
+		nr_digits++;
+		tmp = tmp * -1;
 		number = number * -1;
 	}
-	while (t > 9)
+	while (tmp > 9)
 	{
-		t = t / 10;
-		l = l * 10;
-		r++;
+		tmp = tmp / 10;
+		nr_weight = nr_weight * 10;
+		nr_digits++;
 	}
-	while (l > 0)
+	while (nr_weight > 0)
 	{
-		_putchar('0' + (number / l) % 10);
-		l = l / 10;
+		_putchar('0' + (number / nr_weight) % 10);
+		nr_weight = nr_weight / 10;
 	}
-
-	return (r);
+	return (nr_digits);
 }
 
 /**
@@ -82,28 +81,27 @@ int print_i(va_list i_list)
 int print_d(va_list d_list)
 {
 	long int number = (long int)va_arg(d_list, int);
-	long int l = 1;
-	long int t = number;
-	int r = 1;
+	long int nr_weight = 1;
+	long int tmp = number;
+	int nr_digits = 1;
 
 	if (number < 0)
 	{
 		_putchar('-');
-		r++;
-		t = t * -1;
+		nr_digits++;
+		tmp = tmp * -1;
 		number = number * -1;
 	}
-	while (t > 9)
+	while (tmp > 9)
 	{
-		t = t / 10;
-		l = l * 10;
-		r++;
+		tmp = tmp / 10;
+		nr_weight = nr_weight * 10;
+		nr_digits++;
 	}
-	while (l > 0)
+	while (nr_weight > 0)
 	{
-		_putchar('0' + (number / l) % 10);
-		l = l / 10;
+		_putchar('0' + (number / nr_weight) % 10);
+		nr_weight = nr_weight / 10;
 	}
-
-	return (r);
+	return (nr_digits);
 }

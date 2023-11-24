@@ -4,7 +4,7 @@
 #include <stdarg.h>
 
 /**
- * struct print - Structure containing identifiers
+ * struct print - structure containing identifiers
  * @t: type to print
  * @f: function to print
  */

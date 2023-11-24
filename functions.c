@@ -5,7 +5,7 @@
 
 /**
  * print_c - Prints characters
- * @c_list: Character
+ * @c_list: character
  * Return: 1: The lenght of a char
  */
 

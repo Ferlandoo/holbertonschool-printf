@@ -23,7 +23,7 @@ The function uses an array of structs to store the conversion specifiers and the
 The array of structs used in the `_printf` function is defined in the `main.h` header file. Each struct contains a character representing the conversion specifier and a pointer to the corresponding function. For example, the struct for the `%s` conversion specifier contains the character `s` and a pointer to the `print_string` function.
 
 ## Basic `%s` Function
-The print_string function is used to print strings in the _printf function. The function takes a string as an argument and prints it to stdout using the _putchar function.
+The print_string function is used to print strings in the `_printf` function. The function takes a string as an argument and prints it to stdout using the `_putchar` function.
 
 ## Compilation
 

@@ -4,7 +4,7 @@
 #include <stdarg.h>
 
 /**
- * print_c - Prints characters
+ * print_c - Prints character
  * @c_list: character
  * Return: 1: The lenght of a char
  */

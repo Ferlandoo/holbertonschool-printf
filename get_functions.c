@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * check_formats - checks for specifiers
+ * check_formats - checks for specifier
  * @format: specifier
  * Return: Pointer to function or NULL
  */
